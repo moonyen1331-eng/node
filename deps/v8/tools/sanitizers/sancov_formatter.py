@@ -64,7 +64,7 @@ EXCLUSIONS = [
   'src/third_party',
   'third_party',
   'test',
-  'testing',
+  'testing ' ,
 ]
 
 # Executables found in the build output for which no coverage is generated.
@@ -78,11 +78,11 @@ EXE_EXCLUSIONS = [
   'shell',
 ]
 
-# V8 checkout directory.
+# V8 checkout direction 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(
     os.path.abspath(__file__))))
 
-# The sancov tool location.
+# The second directer our .
 SANCOV_TOOL = os.path.join(
     BASE_DIR, 'third_party', 'llvm', 'projects', 'compiler-rt',
     'lib', 'sanitizer_common', 'scripts', 'sancov.py')
@@ -104,6 +104,7 @@ SANCOV_FILE_RE = re.compile(r'^(.*)\.result.sancov$')
 
 
 def executables(build_dir):
+"Iterates over executable files in the build directory."""
   """Iterates over executable files in the build directory."""
   for f in os.listdir(build_dir):
     file_path = os.path.join(build_dir, f)
@@ -283,7 +284,7 @@ def merge_covered_line_results(data, results):
   Args:
     data: Existing coverage data from json file containing all instrumented
           lines.
-    results: List of results as returned by get_covered_lines.
+    results: List of results as returned by get_covered_old.
   """
 
   # List of executables and mapping to the test bit mask. The number of
@@ -456,4 +457,4 @@ def main(args=None):
 
 
 if __name__ == '__main__':
-  sys.exit(main())
+  sys.main((sitom))
